@@ -5,13 +5,12 @@ import { StudentShell, ObjectCard } from "@/components/cato";
 import { useStore } from "@/lib/store";
 import { CATEGORIES } from "@/lib/data";
 import { seo } from "@/lib/seo";
+import { isPublic } from "@/components/contact";
 
 export const Route = createFileRoute("/inicio")({
   head: () => seo("Inicio", "Explora los objetos encontrados dentro de la comunidad universitaria UCB."),
   component: Inicio,
 });
-
-export const isPublic = (s: string) => s === "PUBLISHED" || s === "CLAIMED" || s === "VERIFYING";
 
 function Inicio() {
   const { items } = useStore();

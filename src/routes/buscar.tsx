@@ -5,7 +5,7 @@ import { StudentShell, ObjectCard, EmptyState, fieldCls } from "@/components/cat
 import { useStore } from "@/lib/store";
 import { CATEGORIES, ZONES } from "@/lib/data";
 import { seo } from "@/lib/seo";
-import { isPublic } from "./inicio";
+import { isPublic } from "@/components/contact";
 
 export const Route = createFileRoute("/buscar")({
   validateSearch: (s: Record<string, unknown>): { q?: string } => ({ q: typeof s.q === "string" ? s.q : undefined }),

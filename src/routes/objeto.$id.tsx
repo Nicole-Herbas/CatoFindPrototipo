@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowLeft, Lock, MessageCircle, Phone, Mail, X } from "lucide-react";
-import { toast } from "sonner";
+import { ArrowLeft, Lock, X } from "lucide-react";
+import { ContactOptions } from "@/components/contact";
 import { StudentShell, ItemImage, StatusBadge, Meta, MapPin, Calendar, Clock, Tag, btn, EmptyState } from "@/components/cato";
 import { useStore } from "@/lib/store";
 import { formatDate } from "@/lib/data";
@@ -11,24 +11,6 @@ export const Route = createFileRoute("/objeto/$id")({
   head: () => seo("Detalle del objeto", "Información pública de un objeto encontrado en la UCB."),
   component: Detalle,
 });
-
-export function ContactOptions() {
-  const sim = (what: string) => toast.info(`${what}: esta acción se simularía en el sistema real.`);
-  return (
-    <div className="grid gap-3">
-      {[
-        { icon: Phone, t: "Contactar por teléfono", s: "Bienestar Estudiantil · horario de oficina" },
-        { icon: MessageCircle, t: "Enviar mensaje por WhatsApp", s: "Respuesta en horas hábiles" },
-        { icon: Mail, t: "Enviar correo electrónico", s: "bienestar@ucb.edu.bo" },
-      ].map((o) => (
-        <button key={o.t} onClick={() => sim(o.t)} className="flex items-center gap-4 rounded-2xl border bg-card p-4 text-left transition hover:shadow-soft">
-          <span className="grid size-11 place-items-center rounded-xl bg-secondary text-primary"><o.icon className="size-5" /></span>
-          <span><span className="block font-semibold">{o.t}</span><span className="text-sm text-muted-foreground">{o.s}</span></span>
-        </button>
-      ))}
-    </div>
-  );
-}
 
 function Detalle() {
   const { id } = Route.useParams();
