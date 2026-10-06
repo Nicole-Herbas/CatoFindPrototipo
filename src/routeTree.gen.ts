@@ -16,6 +16,10 @@ import { Route as InicioRouteImport } from './routes/inicio'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as VerificarCorreoRouteImport } from './routes/verificar-correo'
 import { Route as ObjetoIdRouteImport } from './routes/objeto.$id'
+import { Route as ReportarIndexRouteImport } from './routes/reportar.index'
+import { Route as ReportarConfirmarRouteImport } from './routes/reportar.confirmar'
+import { Route as ReportarEnviadoRouteImport } from './routes/reportar.enviado'
+import { Route as ReportarFotoRouteImport } from './routes/reportar.foto'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +56,26 @@ const ObjetoIdRoute = ObjetoIdRouteImport.update({
   path: '/objeto/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReportarIndexRoute = ReportarIndexRouteImport.update({
+  id: '/reportar/',
+  path: '/reportar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportarConfirmarRoute = ReportarConfirmarRouteImport.update({
+  id: '/reportar/confirmar',
+  path: '/reportar/confirmar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportarEnviadoRoute = ReportarEnviadoRouteImport.update({
+  id: '/reportar/enviado',
+  path: '/reportar/enviado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportarFotoRoute = ReportarFotoRouteImport.update({
+  id: '/reportar/foto',
+  path: '/reportar/foto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -61,6 +85,10 @@ export interface FileRoutesByFullPath {
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
   '/objeto/$id': typeof ObjetoIdRoute
+  '/reportar/confirmar': typeof ReportarConfirmarRoute
+  '/reportar/enviado': typeof ReportarEnviadoRoute
+  '/reportar/foto': typeof ReportarFotoRoute
+  '/reportar/': typeof ReportarIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +98,10 @@ export interface FileRoutesByTo {
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
   '/objeto/$id': typeof ObjetoIdRoute
+  '/reportar/confirmar': typeof ReportarConfirmarRoute
+  '/reportar/enviado': typeof ReportarEnviadoRoute
+  '/reportar/foto': typeof ReportarFotoRoute
+  '/reportar': typeof ReportarIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +112,10 @@ export interface FileRoutesById {
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
   '/objeto/$id': typeof ObjetoIdRoute
+  '/reportar/confirmar': typeof ReportarConfirmarRoute
+  '/reportar/enviado': typeof ReportarEnviadoRoute
+  '/reportar/foto': typeof ReportarFotoRoute
+  '/reportar/': typeof ReportarIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +127,10 @@ export interface FileRouteTypes {
     | '/registro'
     | '/verificar-correo'
     | '/objeto/$id'
+    | '/reportar/confirmar'
+    | '/reportar/enviado'
+    | '/reportar/foto'
+    | '/reportar/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +140,10 @@ export interface FileRouteTypes {
     | '/registro'
     | '/verificar-correo'
     | '/objeto/$id'
+    | '/reportar/confirmar'
+    | '/reportar/enviado'
+    | '/reportar/foto'
+    | '/reportar'
   id:
     | '__root__'
     | '/'
@@ -109,6 +153,10 @@ export interface FileRouteTypes {
     | '/registro'
     | '/verificar-correo'
     | '/objeto/$id'
+    | '/reportar/confirmar'
+    | '/reportar/enviado'
+    | '/reportar/foto'
+    | '/reportar/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,6 +167,10 @@ export interface RootRouteChildren {
   RegistroRoute: typeof RegistroRoute
   VerificarCorreoRoute: typeof VerificarCorreoRoute
   ObjetoIdRoute: typeof ObjetoIdRoute
+  ReportarConfirmarRoute: typeof ReportarConfirmarRoute
+  ReportarEnviadoRoute: typeof ReportarEnviadoRoute
+  ReportarFotoRoute: typeof ReportarFotoRoute
+  ReportarIndexRoute: typeof ReportarIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -172,6 +224,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObjetoIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reportar/': {
+      id: '/reportar/'
+      path: '/reportar'
+      fullPath: '/reportar/'
+      preLoaderRoute: typeof ReportarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reportar/confirmar': {
+      id: '/reportar/confirmar'
+      path: '/reportar/confirmar'
+      fullPath: '/reportar/confirmar'
+      preLoaderRoute: typeof ReportarConfirmarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reportar/enviado': {
+      id: '/reportar/enviado'
+      path: '/reportar/enviado'
+      fullPath: '/reportar/enviado'
+      preLoaderRoute: typeof ReportarEnviadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reportar/foto': {
+      id: '/reportar/foto'
+      path: '/reportar/foto'
+      fullPath: '/reportar/foto'
+      preLoaderRoute: typeof ReportarFotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -183,6 +263,10 @@ const rootRouteChildren: RootRouteChildren = {
   RegistroRoute: RegistroRoute,
   VerificarCorreoRoute: VerificarCorreoRoute,
   ObjetoIdRoute: ObjetoIdRoute,
+  ReportarConfirmarRoute: ReportarConfirmarRoute,
+  ReportarEnviadoRoute: ReportarEnviadoRoute,
+  ReportarFotoRoute: ReportarFotoRoute,
+  ReportarIndexRoute: ReportarIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
