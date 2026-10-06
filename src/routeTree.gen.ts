@@ -13,13 +13,19 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as BuscarRouteImport } from './routes/buscar'
 import { Route as ContactarRouteImport } from './routes/contactar'
 import { Route as InicioRouteImport } from './routes/inicio'
+import { Route as NotificacionesRouteImport } from './routes/notificaciones'
+import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as VerificarCorreoRouteImport } from './routes/verificar-correo'
+import { Route as MisReportesIndexRouteImport } from './routes/mis-reportes.index'
+import { Route as MisReportesIdRouteImport } from './routes/mis-reportes.$id'
 import { Route as ObjetoIdRouteImport } from './routes/objeto.$id'
 import { Route as ReportarIndexRouteImport } from './routes/reportar.index'
 import { Route as ReportarConfirmarRouteImport } from './routes/reportar.confirmar'
 import { Route as ReportarEnviadoRouteImport } from './routes/reportar.enviado'
 import { Route as ReportarFotoRouteImport } from './routes/reportar.foto'
+import { Route as RecuperarIdIndexRouteImport } from './routes/recuperar.$id.index'
+import { Route as RecuperarIdVerificacionRouteImport } from './routes/recuperar.$id.verificacion'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -41,6 +47,16 @@ const InicioRoute = InicioRouteImport.update({
   path: '/inicio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NotificacionesRoute = NotificacionesRouteImport.update({
+  id: '/notificaciones',
+  path: '/notificaciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegistroRoute = RegistroRouteImport.update({
   id: '/registro',
   path: '/registro',
@@ -49,6 +65,16 @@ const RegistroRoute = RegistroRouteImport.update({
 const VerificarCorreoRoute = VerificarCorreoRouteImport.update({
   id: '/verificar-correo',
   path: '/verificar-correo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MisReportesIndexRoute = MisReportesIndexRouteImport.update({
+  id: '/mis-reportes/',
+  path: '/mis-reportes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MisReportesIdRoute = MisReportesIdRouteImport.update({
+  id: '/mis-reportes/$id',
+  path: '/mis-reportes/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ObjetoIdRoute = ObjetoIdRouteImport.update({
@@ -76,32 +102,54 @@ const ReportarFotoRoute = ReportarFotoRouteImport.update({
   path: '/reportar/foto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecuperarIdIndexRoute = RecuperarIdIndexRouteImport.update({
+  id: '/recuperar/$id/',
+  path: '/recuperar/$id/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecuperarIdVerificacionRoute = RecuperarIdVerificacionRouteImport.update({
+  id: '/recuperar/$id/verificacion',
+  path: '/recuperar/$id/verificacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/buscar': typeof BuscarRoute
   '/contactar': typeof ContactarRoute
   '/inicio': typeof InicioRoute
+  '/notificaciones': typeof NotificacionesRoute
+  '/perfil': typeof PerfilRoute
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
+  '/mis-reportes/$id': typeof MisReportesIdRoute
   '/objeto/$id': typeof ObjetoIdRoute
   '/reportar/confirmar': typeof ReportarConfirmarRoute
   '/reportar/enviado': typeof ReportarEnviadoRoute
   '/reportar/foto': typeof ReportarFotoRoute
+  '/mis-reportes/': typeof MisReportesIndexRoute
   '/reportar/': typeof ReportarIndexRoute
+  '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/recuperar/$id/': typeof RecuperarIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/buscar': typeof BuscarRoute
   '/contactar': typeof ContactarRoute
   '/inicio': typeof InicioRoute
+  '/notificaciones': typeof NotificacionesRoute
+  '/perfil': typeof PerfilRoute
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
+  '/mis-reportes/$id': typeof MisReportesIdRoute
   '/objeto/$id': typeof ObjetoIdRoute
   '/reportar/confirmar': typeof ReportarConfirmarRoute
   '/reportar/enviado': typeof ReportarEnviadoRoute
   '/reportar/foto': typeof ReportarFotoRoute
+  '/mis-reportes': typeof MisReportesIndexRoute
   '/reportar': typeof ReportarIndexRoute
+  '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/recuperar/$id': typeof RecuperarIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -109,13 +157,19 @@ export interface FileRoutesById {
   '/buscar': typeof BuscarRoute
   '/contactar': typeof ContactarRoute
   '/inicio': typeof InicioRoute
+  '/notificaciones': typeof NotificacionesRoute
+  '/perfil': typeof PerfilRoute
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
+  '/mis-reportes/$id': typeof MisReportesIdRoute
   '/objeto/$id': typeof ObjetoIdRoute
   '/reportar/confirmar': typeof ReportarConfirmarRoute
   '/reportar/enviado': typeof ReportarEnviadoRoute
   '/reportar/foto': typeof ReportarFotoRoute
+  '/mis-reportes/': typeof MisReportesIndexRoute
   '/reportar/': typeof ReportarIndexRoute
+  '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/recuperar/$id/': typeof RecuperarIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -124,39 +178,57 @@ export interface FileRouteTypes {
     | '/buscar'
     | '/contactar'
     | '/inicio'
+    | '/notificaciones'
+    | '/perfil'
     | '/registro'
     | '/verificar-correo'
+    | '/mis-reportes/$id'
     | '/objeto/$id'
     | '/reportar/confirmar'
     | '/reportar/enviado'
     | '/reportar/foto'
+    | '/mis-reportes/'
     | '/reportar/'
+    | '/recuperar/$id/verificacion'
+    | '/recuperar/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/buscar'
     | '/contactar'
     | '/inicio'
+    | '/notificaciones'
+    | '/perfil'
     | '/registro'
     | '/verificar-correo'
+    | '/mis-reportes/$id'
     | '/objeto/$id'
     | '/reportar/confirmar'
     | '/reportar/enviado'
     | '/reportar/foto'
+    | '/mis-reportes'
     | '/reportar'
+    | '/recuperar/$id/verificacion'
+    | '/recuperar/$id'
   id:
     | '__root__'
     | '/'
     | '/buscar'
     | '/contactar'
     | '/inicio'
+    | '/notificaciones'
+    | '/perfil'
     | '/registro'
     | '/verificar-correo'
+    | '/mis-reportes/$id'
     | '/objeto/$id'
     | '/reportar/confirmar'
     | '/reportar/enviado'
     | '/reportar/foto'
+    | '/mis-reportes/'
     | '/reportar/'
+    | '/recuperar/$id/verificacion'
+    | '/recuperar/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -164,13 +236,19 @@ export interface RootRouteChildren {
   BuscarRoute: typeof BuscarRoute
   ContactarRoute: typeof ContactarRoute
   InicioRoute: typeof InicioRoute
+  NotificacionesRoute: typeof NotificacionesRoute
+  PerfilRoute: typeof PerfilRoute
   RegistroRoute: typeof RegistroRoute
   VerificarCorreoRoute: typeof VerificarCorreoRoute
+  MisReportesIdRoute: typeof MisReportesIdRoute
   ObjetoIdRoute: typeof ObjetoIdRoute
   ReportarConfirmarRoute: typeof ReportarConfirmarRoute
   ReportarEnviadoRoute: typeof ReportarEnviadoRoute
   ReportarFotoRoute: typeof ReportarFotoRoute
+  MisReportesIndexRoute: typeof MisReportesIndexRoute
   ReportarIndexRoute: typeof ReportarIndexRoute
+  RecuperarIdVerificacionRoute: typeof RecuperarIdVerificacionRoute
+  RecuperarIdIndexRoute: typeof RecuperarIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -203,6 +281,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InicioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/notificaciones': {
+      id: '/notificaciones'
+      path: '/notificaciones'
+      fullPath: '/notificaciones'
+      preLoaderRoute: typeof NotificacionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/registro': {
       id: '/registro'
       path: '/registro'
@@ -215,6 +307,20 @@ declare module '@tanstack/react-router' {
       path: '/verificar-correo'
       fullPath: '/verificar-correo'
       preLoaderRoute: typeof VerificarCorreoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mis-reportes/': {
+      id: '/mis-reportes/'
+      path: '/mis-reportes'
+      fullPath: '/mis-reportes/'
+      preLoaderRoute: typeof MisReportesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mis-reportes/$id': {
+      id: '/mis-reportes/$id'
+      path: '/mis-reportes/$id'
+      fullPath: '/mis-reportes/$id'
+      preLoaderRoute: typeof MisReportesIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/objeto/$id': {
@@ -252,6 +358,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportarFotoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recuperar/$id/': {
+      id: '/recuperar/$id/'
+      path: '/recuperar/$id'
+      fullPath: '/recuperar/$id/'
+      preLoaderRoute: typeof RecuperarIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recuperar/$id/verificacion': {
+      id: '/recuperar/$id/verificacion'
+      path: '/recuperar/$id/verificacion'
+      fullPath: '/recuperar/$id/verificacion'
+      preLoaderRoute: typeof RecuperarIdVerificacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -260,13 +380,19 @@ const rootRouteChildren: RootRouteChildren = {
   BuscarRoute: BuscarRoute,
   ContactarRoute: ContactarRoute,
   InicioRoute: InicioRoute,
+  NotificacionesRoute: NotificacionesRoute,
+  PerfilRoute: PerfilRoute,
   RegistroRoute: RegistroRoute,
   VerificarCorreoRoute: VerificarCorreoRoute,
+  MisReportesIdRoute: MisReportesIdRoute,
   ObjetoIdRoute: ObjetoIdRoute,
   ReportarConfirmarRoute: ReportarConfirmarRoute,
   ReportarEnviadoRoute: ReportarEnviadoRoute,
   ReportarFotoRoute: ReportarFotoRoute,
+  MisReportesIndexRoute: MisReportesIndexRoute,
   ReportarIndexRoute: ReportarIndexRoute,
+  RecuperarIdVerificacionRoute: RecuperarIdVerificacionRoute,
+  RecuperarIdIndexRoute: RecuperarIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
