@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RegistroRouteImport } from './routes/registro'
+import { Route as VerificarCorreoRouteImport } from './routes/verificar-correo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegistroRoute = RegistroRouteImport.update({
+  id: '/registro',
+  path: '/registro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerificarCorreoRoute = VerificarCorreoRouteImport.update({
+  id: '/verificar-correo',
+  path: '/verificar-correo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/registro': typeof RegistroRoute
+  '/verificar-correo': typeof VerificarCorreoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/registro': typeof RegistroRoute
+  '/verificar-correo': typeof VerificarCorreoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/registro': typeof RegistroRoute
+  '/verificar-correo': typeof VerificarCorreoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/registro' | '/verificar-correo'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/registro' | '/verificar-correo'
+  id: '__root__' | '/' | '/registro' | '/verificar-correo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  RegistroRoute: typeof RegistroRoute
+  VerificarCorreoRoute: typeof VerificarCorreoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/registro': {
+      id: '/registro'
+      path: '/registro'
+      fullPath: '/registro'
+      preLoaderRoute: typeof RegistroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verificar-correo': {
+      id: '/verificar-correo'
+      path: '/verificar-correo'
+      fullPath: '/verificar-correo'
+      preLoaderRoute: typeof VerificarCorreoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  RegistroRoute: RegistroRoute,
+  VerificarCorreoRoute: VerificarCorreoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
