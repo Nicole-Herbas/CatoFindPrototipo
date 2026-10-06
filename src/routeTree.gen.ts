@@ -10,33 +10,245 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BuscarRouteImport } from './routes/buscar'
+import { Route as ContactarRouteImport } from './routes/contactar'
+import { Route as InicioRouteImport } from './routes/inicio'
+import { Route as NotificacionesRouteImport } from './routes/notificaciones'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as RegistroRouteImport } from './routes/registro'
+import { Route as VerificarCorreoRouteImport } from './routes/verificar-correo'
+import { Route as MisReportesIndexRouteImport } from './routes/mis-reportes.index'
+import { Route as MisReportesIdRouteImport } from './routes/mis-reportes.$id'
+import { Route as ObjetoIdRouteImport } from './routes/objeto.$id'
+import { Route as ReportarIndexRouteImport } from './routes/reportar.index'
+import { Route as ReportarConfirmarRouteImport } from './routes/reportar.confirmar'
+import { Route as ReportarEnviadoRouteImport } from './routes/reportar.enviado'
+import { Route as ReportarFotoRouteImport } from './routes/reportar.foto'
+import { Route as RecuperarIdIndexRouteImport } from './routes/recuperar.$id.index'
+import { Route as RecuperarIdVerificacionRouteImport } from './routes/recuperar.$id.verificacion'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuscarRoute = BuscarRouteImport.update({
+  id: '/buscar',
+  path: '/buscar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactarRoute = ContactarRouteImport.update({
+  id: '/contactar',
+  path: '/contactar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InicioRoute = InicioRouteImport.update({
+  id: '/inicio',
+  path: '/inicio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificacionesRoute = NotificacionesRouteImport.update({
+  id: '/notificaciones',
+  path: '/notificaciones',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegistroRoute = RegistroRouteImport.update({
+  id: '/registro',
+  path: '/registro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerificarCorreoRoute = VerificarCorreoRouteImport.update({
+  id: '/verificar-correo',
+  path: '/verificar-correo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MisReportesIndexRoute = MisReportesIndexRouteImport.update({
+  id: '/mis-reportes/',
+  path: '/mis-reportes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MisReportesIdRoute = MisReportesIdRouteImport.update({
+  id: '/mis-reportes/$id',
+  path: '/mis-reportes/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObjetoIdRoute = ObjetoIdRouteImport.update({
+  id: '/objeto/$id',
+  path: '/objeto/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportarIndexRoute = ReportarIndexRouteImport.update({
+  id: '/reportar/',
+  path: '/reportar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportarConfirmarRoute = ReportarConfirmarRouteImport.update({
+  id: '/reportar/confirmar',
+  path: '/reportar/confirmar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportarEnviadoRoute = ReportarEnviadoRouteImport.update({
+  id: '/reportar/enviado',
+  path: '/reportar/enviado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportarFotoRoute = ReportarFotoRouteImport.update({
+  id: '/reportar/foto',
+  path: '/reportar/foto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecuperarIdIndexRoute = RecuperarIdIndexRouteImport.update({
+  id: '/recuperar/$id/',
+  path: '/recuperar/$id/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecuperarIdVerificacionRoute = RecuperarIdVerificacionRouteImport.update({
+  id: '/recuperar/$id/verificacion',
+  path: '/recuperar/$id/verificacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/buscar': typeof BuscarRoute
+  '/contactar': typeof ContactarRoute
+  '/inicio': typeof InicioRoute
+  '/notificaciones': typeof NotificacionesRoute
+  '/perfil': typeof PerfilRoute
+  '/registro': typeof RegistroRoute
+  '/verificar-correo': typeof VerificarCorreoRoute
+  '/mis-reportes/$id': typeof MisReportesIdRoute
+  '/objeto/$id': typeof ObjetoIdRoute
+  '/reportar/confirmar': typeof ReportarConfirmarRoute
+  '/reportar/enviado': typeof ReportarEnviadoRoute
+  '/reportar/foto': typeof ReportarFotoRoute
+  '/mis-reportes/': typeof MisReportesIndexRoute
+  '/reportar/': typeof ReportarIndexRoute
+  '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/recuperar/$id/': typeof RecuperarIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/buscar': typeof BuscarRoute
+  '/contactar': typeof ContactarRoute
+  '/inicio': typeof InicioRoute
+  '/notificaciones': typeof NotificacionesRoute
+  '/perfil': typeof PerfilRoute
+  '/registro': typeof RegistroRoute
+  '/verificar-correo': typeof VerificarCorreoRoute
+  '/mis-reportes/$id': typeof MisReportesIdRoute
+  '/objeto/$id': typeof ObjetoIdRoute
+  '/reportar/confirmar': typeof ReportarConfirmarRoute
+  '/reportar/enviado': typeof ReportarEnviadoRoute
+  '/reportar/foto': typeof ReportarFotoRoute
+  '/mis-reportes': typeof MisReportesIndexRoute
+  '/reportar': typeof ReportarIndexRoute
+  '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/recuperar/$id': typeof RecuperarIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/buscar': typeof BuscarRoute
+  '/contactar': typeof ContactarRoute
+  '/inicio': typeof InicioRoute
+  '/notificaciones': typeof NotificacionesRoute
+  '/perfil': typeof PerfilRoute
+  '/registro': typeof RegistroRoute
+  '/verificar-correo': typeof VerificarCorreoRoute
+  '/mis-reportes/$id': typeof MisReportesIdRoute
+  '/objeto/$id': typeof ObjetoIdRoute
+  '/reportar/confirmar': typeof ReportarConfirmarRoute
+  '/reportar/enviado': typeof ReportarEnviadoRoute
+  '/reportar/foto': typeof ReportarFotoRoute
+  '/mis-reportes/': typeof MisReportesIndexRoute
+  '/reportar/': typeof ReportarIndexRoute
+  '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/recuperar/$id/': typeof RecuperarIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/buscar'
+    | '/contactar'
+    | '/inicio'
+    | '/notificaciones'
+    | '/perfil'
+    | '/registro'
+    | '/verificar-correo'
+    | '/mis-reportes/$id'
+    | '/objeto/$id'
+    | '/reportar/confirmar'
+    | '/reportar/enviado'
+    | '/reportar/foto'
+    | '/mis-reportes/'
+    | '/reportar/'
+    | '/recuperar/$id/verificacion'
+    | '/recuperar/$id/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/buscar'
+    | '/contactar'
+    | '/inicio'
+    | '/notificaciones'
+    | '/perfil'
+    | '/registro'
+    | '/verificar-correo'
+    | '/mis-reportes/$id'
+    | '/objeto/$id'
+    | '/reportar/confirmar'
+    | '/reportar/enviado'
+    | '/reportar/foto'
+    | '/mis-reportes'
+    | '/reportar'
+    | '/recuperar/$id/verificacion'
+    | '/recuperar/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/buscar'
+    | '/contactar'
+    | '/inicio'
+    | '/notificaciones'
+    | '/perfil'
+    | '/registro'
+    | '/verificar-correo'
+    | '/mis-reportes/$id'
+    | '/objeto/$id'
+    | '/reportar/confirmar'
+    | '/reportar/enviado'
+    | '/reportar/foto'
+    | '/mis-reportes/'
+    | '/reportar/'
+    | '/recuperar/$id/verificacion'
+    | '/recuperar/$id/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuscarRoute: typeof BuscarRoute
+  ContactarRoute: typeof ContactarRoute
+  InicioRoute: typeof InicioRoute
+  NotificacionesRoute: typeof NotificacionesRoute
+  PerfilRoute: typeof PerfilRoute
+  RegistroRoute: typeof RegistroRoute
+  VerificarCorreoRoute: typeof VerificarCorreoRoute
+  MisReportesIdRoute: typeof MisReportesIdRoute
+  ObjetoIdRoute: typeof ObjetoIdRoute
+  ReportarConfirmarRoute: typeof ReportarConfirmarRoute
+  ReportarEnviadoRoute: typeof ReportarEnviadoRoute
+  ReportarFotoRoute: typeof ReportarFotoRoute
+  MisReportesIndexRoute: typeof MisReportesIndexRoute
+  ReportarIndexRoute: typeof ReportarIndexRoute
+  RecuperarIdVerificacionRoute: typeof RecuperarIdVerificacionRoute
+  RecuperarIdIndexRoute: typeof RecuperarIdIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +260,139 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/buscar': {
+      id: '/buscar'
+      path: '/buscar'
+      fullPath: '/buscar'
+      preLoaderRoute: typeof BuscarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contactar': {
+      id: '/contactar'
+      path: '/contactar'
+      fullPath: '/contactar'
+      preLoaderRoute: typeof ContactarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inicio': {
+      id: '/inicio'
+      path: '/inicio'
+      fullPath: '/inicio'
+      preLoaderRoute: typeof InicioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notificaciones': {
+      id: '/notificaciones'
+      path: '/notificaciones'
+      fullPath: '/notificaciones'
+      preLoaderRoute: typeof NotificacionesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/registro': {
+      id: '/registro'
+      path: '/registro'
+      fullPath: '/registro'
+      preLoaderRoute: typeof RegistroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verificar-correo': {
+      id: '/verificar-correo'
+      path: '/verificar-correo'
+      fullPath: '/verificar-correo'
+      preLoaderRoute: typeof VerificarCorreoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mis-reportes/': {
+      id: '/mis-reportes/'
+      path: '/mis-reportes'
+      fullPath: '/mis-reportes/'
+      preLoaderRoute: typeof MisReportesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mis-reportes/$id': {
+      id: '/mis-reportes/$id'
+      path: '/mis-reportes/$id'
+      fullPath: '/mis-reportes/$id'
+      preLoaderRoute: typeof MisReportesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/objeto/$id': {
+      id: '/objeto/$id'
+      path: '/objeto/$id'
+      fullPath: '/objeto/$id'
+      preLoaderRoute: typeof ObjetoIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reportar/': {
+      id: '/reportar/'
+      path: '/reportar'
+      fullPath: '/reportar/'
+      preLoaderRoute: typeof ReportarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reportar/confirmar': {
+      id: '/reportar/confirmar'
+      path: '/reportar/confirmar'
+      fullPath: '/reportar/confirmar'
+      preLoaderRoute: typeof ReportarConfirmarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reportar/enviado': {
+      id: '/reportar/enviado'
+      path: '/reportar/enviado'
+      fullPath: '/reportar/enviado'
+      preLoaderRoute: typeof ReportarEnviadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reportar/foto': {
+      id: '/reportar/foto'
+      path: '/reportar/foto'
+      fullPath: '/reportar/foto'
+      preLoaderRoute: typeof ReportarFotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recuperar/$id/': {
+      id: '/recuperar/$id/'
+      path: '/recuperar/$id'
+      fullPath: '/recuperar/$id/'
+      preLoaderRoute: typeof RecuperarIdIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recuperar/$id/verificacion': {
+      id: '/recuperar/$id/verificacion'
+      path: '/recuperar/$id/verificacion'
+      fullPath: '/recuperar/$id/verificacion'
+      preLoaderRoute: typeof RecuperarIdVerificacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuscarRoute: BuscarRoute,
+  ContactarRoute: ContactarRoute,
+  InicioRoute: InicioRoute,
+  NotificacionesRoute: NotificacionesRoute,
+  PerfilRoute: PerfilRoute,
+  RegistroRoute: RegistroRoute,
+  VerificarCorreoRoute: VerificarCorreoRoute,
+  MisReportesIdRoute: MisReportesIdRoute,
+  ObjetoIdRoute: ObjetoIdRoute,
+  ReportarConfirmarRoute: ReportarConfirmarRoute,
+  ReportarEnviadoRoute: ReportarEnviadoRoute,
+  ReportarFotoRoute: ReportarFotoRoute,
+  MisReportesIndexRoute: MisReportesIndexRoute,
+  ReportarIndexRoute: ReportarIndexRoute,
+  RecuperarIdVerificacionRoute: RecuperarIdVerificacionRoute,
+  RecuperarIdIndexRoute: RecuperarIdIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
