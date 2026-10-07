@@ -17,6 +17,8 @@ import { Route as NotificacionesRouteImport } from './routes/notificaciones'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as RegistroRouteImport } from './routes/registro'
 import { Route as VerificarCorreoRouteImport } from './routes/verificar-correo'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminObjetosRouteImport } from './routes/admin.objetos'
 import { Route as MisReportesIndexRouteImport } from './routes/mis-reportes.index'
 import { Route as MisReportesIdRouteImport } from './routes/mis-reportes.$id'
 import { Route as ObjetoIdRouteImport } from './routes/objeto.$id'
@@ -24,6 +26,11 @@ import { Route as ReportarIndexRouteImport } from './routes/reportar.index'
 import { Route as ReportarConfirmarRouteImport } from './routes/reportar.confirmar'
 import { Route as ReportarEnviadoRouteImport } from './routes/reportar.enviado'
 import { Route as ReportarFotoRouteImport } from './routes/reportar.foto'
+import { Route as AdminDevolucionIdRouteImport } from './routes/admin.devolucion.$id'
+import { Route as AdminReportesIdRouteImport } from './routes/admin.reportes.$id'
+import { Route as AdminSolicitudesIndexRouteImport } from './routes/admin.solicitudes.index'
+import { Route as AdminSolicitudesIdRouteImport } from './routes/admin.solicitudes.$id'
+import { Route as AdminVerificarPropietarioIdRouteImport } from './routes/admin.verificar-propietario.$id'
 import { Route as RecuperarIdIndexRouteImport } from './routes/recuperar.$id.index'
 import { Route as RecuperarIdVerificacionRouteImport } from './routes/recuperar.$id.verificacion'
 
@@ -67,6 +74,16 @@ const VerificarCorreoRoute = VerificarCorreoRouteImport.update({
   path: '/verificar-correo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminObjetosRoute = AdminObjetosRouteImport.update({
+  id: '/admin/objetos',
+  path: '/admin/objetos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MisReportesIndexRoute = MisReportesIndexRouteImport.update({
   id: '/mis-reportes/',
   path: '/mis-reportes/',
@@ -102,6 +119,32 @@ const ReportarFotoRoute = ReportarFotoRouteImport.update({
   path: '/reportar/foto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminDevolucionIdRoute = AdminDevolucionIdRouteImport.update({
+  id: '/admin/devolucion/$id',
+  path: '/admin/devolucion/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminReportesIdRoute = AdminReportesIdRouteImport.update({
+  id: '/admin/reportes/$id',
+  path: '/admin/reportes/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSolicitudesIndexRoute = AdminSolicitudesIndexRouteImport.update({
+  id: '/admin/solicitudes/',
+  path: '/admin/solicitudes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSolicitudesIdRoute = AdminSolicitudesIdRouteImport.update({
+  id: '/admin/solicitudes/$id',
+  path: '/admin/solicitudes/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminVerificarPropietarioIdRoute =
+  AdminVerificarPropietarioIdRouteImport.update({
+    id: '/admin/verificar-propietario/$id',
+    path: '/admin/verificar-propietario/$id',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const RecuperarIdIndexRoute = RecuperarIdIndexRouteImport.update({
   id: '/recuperar/$id/',
   path: '/recuperar/$id/',
@@ -122,14 +165,21 @@ export interface FileRoutesByFullPath {
   '/perfil': typeof PerfilRoute
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
+  '/admin/objetos': typeof AdminObjetosRoute
   '/mis-reportes/$id': typeof MisReportesIdRoute
   '/objeto/$id': typeof ObjetoIdRoute
   '/reportar/confirmar': typeof ReportarConfirmarRoute
   '/reportar/enviado': typeof ReportarEnviadoRoute
   '/reportar/foto': typeof ReportarFotoRoute
+  '/admin/': typeof AdminIndexRoute
   '/mis-reportes/': typeof MisReportesIndexRoute
   '/reportar/': typeof ReportarIndexRoute
+  '/admin/devolucion/$id': typeof AdminDevolucionIdRoute
+  '/admin/reportes/$id': typeof AdminReportesIdRoute
+  '/admin/solicitudes/$id': typeof AdminSolicitudesIdRoute
+  '/admin/verificar-propietario/$id': typeof AdminVerificarPropietarioIdRoute
   '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/admin/solicitudes/': typeof AdminSolicitudesIndexRoute
   '/recuperar/$id/': typeof RecuperarIdIndexRoute
 }
 export interface FileRoutesByTo {
@@ -141,14 +191,21 @@ export interface FileRoutesByTo {
   '/perfil': typeof PerfilRoute
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
+  '/admin/objetos': typeof AdminObjetosRoute
   '/mis-reportes/$id': typeof MisReportesIdRoute
   '/objeto/$id': typeof ObjetoIdRoute
   '/reportar/confirmar': typeof ReportarConfirmarRoute
   '/reportar/enviado': typeof ReportarEnviadoRoute
   '/reportar/foto': typeof ReportarFotoRoute
+  '/admin': typeof AdminIndexRoute
   '/mis-reportes': typeof MisReportesIndexRoute
   '/reportar': typeof ReportarIndexRoute
+  '/admin/devolucion/$id': typeof AdminDevolucionIdRoute
+  '/admin/reportes/$id': typeof AdminReportesIdRoute
+  '/admin/solicitudes/$id': typeof AdminSolicitudesIdRoute
+  '/admin/verificar-propietario/$id': typeof AdminVerificarPropietarioIdRoute
   '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/admin/solicitudes': typeof AdminSolicitudesIndexRoute
   '/recuperar/$id': typeof RecuperarIdIndexRoute
 }
 export interface FileRoutesById {
@@ -161,14 +218,21 @@ export interface FileRoutesById {
   '/perfil': typeof PerfilRoute
   '/registro': typeof RegistroRoute
   '/verificar-correo': typeof VerificarCorreoRoute
+  '/admin/objetos': typeof AdminObjetosRoute
   '/mis-reportes/$id': typeof MisReportesIdRoute
   '/objeto/$id': typeof ObjetoIdRoute
   '/reportar/confirmar': typeof ReportarConfirmarRoute
   '/reportar/enviado': typeof ReportarEnviadoRoute
   '/reportar/foto': typeof ReportarFotoRoute
+  '/admin/': typeof AdminIndexRoute
   '/mis-reportes/': typeof MisReportesIndexRoute
   '/reportar/': typeof ReportarIndexRoute
+  '/admin/devolucion/$id': typeof AdminDevolucionIdRoute
+  '/admin/reportes/$id': typeof AdminReportesIdRoute
+  '/admin/solicitudes/$id': typeof AdminSolicitudesIdRoute
+  '/admin/verificar-propietario/$id': typeof AdminVerificarPropietarioIdRoute
   '/recuperar/$id/verificacion': typeof RecuperarIdVerificacionRoute
+  '/admin/solicitudes/': typeof AdminSolicitudesIndexRoute
   '/recuperar/$id/': typeof RecuperarIdIndexRoute
 }
 export interface FileRouteTypes {
@@ -182,14 +246,21 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/registro'
     | '/verificar-correo'
+    | '/admin/objetos'
     | '/mis-reportes/$id'
     | '/objeto/$id'
     | '/reportar/confirmar'
     | '/reportar/enviado'
     | '/reportar/foto'
+    | '/admin/'
     | '/mis-reportes/'
     | '/reportar/'
+    | '/admin/devolucion/$id'
+    | '/admin/reportes/$id'
+    | '/admin/solicitudes/$id'
+    | '/admin/verificar-propietario/$id'
     | '/recuperar/$id/verificacion'
+    | '/admin/solicitudes/'
     | '/recuperar/$id/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -201,14 +272,21 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/registro'
     | '/verificar-correo'
+    | '/admin/objetos'
     | '/mis-reportes/$id'
     | '/objeto/$id'
     | '/reportar/confirmar'
     | '/reportar/enviado'
     | '/reportar/foto'
+    | '/admin'
     | '/mis-reportes'
     | '/reportar'
+    | '/admin/devolucion/$id'
+    | '/admin/reportes/$id'
+    | '/admin/solicitudes/$id'
+    | '/admin/verificar-propietario/$id'
     | '/recuperar/$id/verificacion'
+    | '/admin/solicitudes'
     | '/recuperar/$id'
   id:
     | '__root__'
@@ -220,14 +298,21 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/registro'
     | '/verificar-correo'
+    | '/admin/objetos'
     | '/mis-reportes/$id'
     | '/objeto/$id'
     | '/reportar/confirmar'
     | '/reportar/enviado'
     | '/reportar/foto'
+    | '/admin/'
     | '/mis-reportes/'
     | '/reportar/'
+    | '/admin/devolucion/$id'
+    | '/admin/reportes/$id'
+    | '/admin/solicitudes/$id'
+    | '/admin/verificar-propietario/$id'
     | '/recuperar/$id/verificacion'
+    | '/admin/solicitudes/'
     | '/recuperar/$id/'
   fileRoutesById: FileRoutesById
 }
@@ -240,14 +325,21 @@ export interface RootRouteChildren {
   PerfilRoute: typeof PerfilRoute
   RegistroRoute: typeof RegistroRoute
   VerificarCorreoRoute: typeof VerificarCorreoRoute
+  AdminObjetosRoute: typeof AdminObjetosRoute
   MisReportesIdRoute: typeof MisReportesIdRoute
   ObjetoIdRoute: typeof ObjetoIdRoute
   ReportarConfirmarRoute: typeof ReportarConfirmarRoute
   ReportarEnviadoRoute: typeof ReportarEnviadoRoute
   ReportarFotoRoute: typeof ReportarFotoRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   MisReportesIndexRoute: typeof MisReportesIndexRoute
   ReportarIndexRoute: typeof ReportarIndexRoute
+  AdminDevolucionIdRoute: typeof AdminDevolucionIdRoute
+  AdminReportesIdRoute: typeof AdminReportesIdRoute
+  AdminSolicitudesIdRoute: typeof AdminSolicitudesIdRoute
+  AdminVerificarPropietarioIdRoute: typeof AdminVerificarPropietarioIdRoute
   RecuperarIdVerificacionRoute: typeof RecuperarIdVerificacionRoute
+  AdminSolicitudesIndexRoute: typeof AdminSolicitudesIndexRoute
   RecuperarIdIndexRoute: typeof RecuperarIdIndexRoute
 }
 
@@ -309,6 +401,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerificarCorreoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/objetos': {
+      id: '/admin/objetos'
+      path: '/admin/objetos'
+      fullPath: '/admin/objetos'
+      preLoaderRoute: typeof AdminObjetosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mis-reportes/': {
       id: '/mis-reportes/'
       path: '/mis-reportes'
@@ -358,6 +464,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportarFotoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/devolucion/$id': {
+      id: '/admin/devolucion/$id'
+      path: '/admin/devolucion/$id'
+      fullPath: '/admin/devolucion/$id'
+      preLoaderRoute: typeof AdminDevolucionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/reportes/$id': {
+      id: '/admin/reportes/$id'
+      path: '/admin/reportes/$id'
+      fullPath: '/admin/reportes/$id'
+      preLoaderRoute: typeof AdminReportesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/solicitudes/': {
+      id: '/admin/solicitudes/'
+      path: '/admin/solicitudes'
+      fullPath: '/admin/solicitudes/'
+      preLoaderRoute: typeof AdminSolicitudesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/solicitudes/$id': {
+      id: '/admin/solicitudes/$id'
+      path: '/admin/solicitudes/$id'
+      fullPath: '/admin/solicitudes/$id'
+      preLoaderRoute: typeof AdminSolicitudesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/verificar-propietario/$id': {
+      id: '/admin/verificar-propietario/$id'
+      path: '/admin/verificar-propietario/$id'
+      fullPath: '/admin/verificar-propietario/$id'
+      preLoaderRoute: typeof AdminVerificarPropietarioIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/recuperar/$id/': {
       id: '/recuperar/$id/'
       path: '/recuperar/$id'
@@ -384,14 +525,21 @@ const rootRouteChildren: RootRouteChildren = {
   PerfilRoute: PerfilRoute,
   RegistroRoute: RegistroRoute,
   VerificarCorreoRoute: VerificarCorreoRoute,
+  AdminObjetosRoute: AdminObjetosRoute,
   MisReportesIdRoute: MisReportesIdRoute,
   ObjetoIdRoute: ObjetoIdRoute,
   ReportarConfirmarRoute: ReportarConfirmarRoute,
   ReportarEnviadoRoute: ReportarEnviadoRoute,
   ReportarFotoRoute: ReportarFotoRoute,
+  AdminIndexRoute: AdminIndexRoute,
   MisReportesIndexRoute: MisReportesIndexRoute,
   ReportarIndexRoute: ReportarIndexRoute,
+  AdminDevolucionIdRoute: AdminDevolucionIdRoute,
+  AdminReportesIdRoute: AdminReportesIdRoute,
+  AdminSolicitudesIdRoute: AdminSolicitudesIdRoute,
+  AdminVerificarPropietarioIdRoute: AdminVerificarPropietarioIdRoute,
   RecuperarIdVerificacionRoute: RecuperarIdVerificacionRoute,
+  AdminSolicitudesIndexRoute: AdminSolicitudesIndexRoute,
   RecuperarIdIndexRoute: RecuperarIdIndexRoute,
 }
 export const routeTree = rootRouteImport

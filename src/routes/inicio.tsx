@@ -22,7 +22,7 @@ function Inicio() {
   return (
     <StudentShell fab>
       <section className="relative overflow-hidden rounded-3xl bg-hero px-6 py-10 text-primary-foreground md:px-12 md:py-14">
-        <p className="text-sm font-medium text-primary-foreground/70">No todo está perdido.</p>
+        <span className="absolute inset-x-0 top-0 h-1.5 bg-gold" /><p className="inline-flex rounded-full bg-gold px-3 py-1 text-xs font-bold text-gold-foreground">No todo está perdido.</p>
         <h1 className="mt-2 max-w-xl text-3xl font-extrabold tracking-tight md:text-5xl">Encuentra lo que perdiste</h1>
         <p className="mt-3 max-w-lg text-primary-foreground/80">Explora los objetos encontrados dentro de la comunidad universitaria.</p>
         <form onSubmit={(e) => { e.preventDefault(); navigate({ to: "/buscar", search: { q } }); }}
@@ -30,7 +30,7 @@ function Inicio() {
           <Search className="ml-3 size-5 text-muted-foreground" />
           <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="¿Qué estás buscando?" aria-label="Buscar"
             className="min-w-0 flex-1 bg-transparent py-2 text-foreground outline-none" />
-          <button className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground">Buscar</button>
+          <button className="rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-gold-foreground">Buscar</button>
         </form>
       </section>
 
