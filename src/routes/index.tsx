@@ -8,6 +8,7 @@ import { seo } from "@/lib/seo";
 import mochila from "@/assets/items/mochila.jpg";
 import perro from "@/assets/items/perro.jpg";
 import audifonos from "@/assets/items/audifonos.jpg";
+import ucbLogo from "@/assets/ucb-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => seo("Iniciar sesión", "Cato Find: objetos perdidos y encontrados de la Universidad Católica Boliviana. No todo está perdido."),
@@ -35,7 +36,7 @@ function Login() {
       <section className="relative hidden overflow-hidden bg-hero p-12 text-primary-foreground lg:flex lg:flex-col">
         <Logo light />
         <div className="mt-auto max-w-md">
-          <h1 className="text-5xl font-extrabold leading-tight tracking-tight">No todo está perdido.</h1>
+          <span className="mb-4 block h-1.5 w-16 rounded-full bg-gold" /><h1 className="text-5xl font-extrabold leading-tight tracking-tight">No todo está <span className="text-gold">perdido.</span></h1>
           <p className="mt-4 text-primary-foreground/80">Busca, reporta y recupera objetos dentro de la comunidad UCB, sin perderte entre mensajes de WhatsApp.</p>
         </div>
         <div className="mt-10 flex gap-4">
@@ -47,7 +48,8 @@ function Login() {
       <section className="flex items-center justify-center p-6">
         <div className="w-full max-w-sm animate-rise">
           <div className="lg:hidden"><Logo /><p className="mt-2 text-muted-foreground">No todo está perdido.</p></div>
-          <h2 className="mt-8 text-2xl font-bold lg:mt-0">Iniciar sesión</h2>
+          <img src={ucbLogo.url} alt="Universidad Católica Boliviana" className="mb-6 mt-6 h-14 w-auto lg:mt-0" />
+          <h2 className="text-2xl font-bold">Iniciar sesión</h2>
           <p className="mt-1 text-sm text-muted-foreground">Usa tu correo institucional.</p>
           <form onSubmit={submit} className="mt-6 space-y-3">
             <input className={fieldCls} type="email" placeholder="correo@ucb.edu.bo" value={email} onChange={(e) => setEmail(e.target.value)} aria-label="Correo institucional" required />

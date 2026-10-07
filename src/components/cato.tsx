@@ -8,14 +8,15 @@ import { useStore } from "@/lib/store";
 import { STATUS_LABEL, formatDate, type Item, type Status } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
+import escudo from "@/assets/ucb-escudo.png.asset.json";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className={cn("inline-flex items-center gap-2 font-extrabold tracking-tight", light ? "text-primary-foreground" : "text-primary")}>
-      <span className={cn("grid size-8 place-items-center rounded-xl", light ? "bg-primary-foreground/15" : "bg-hero text-primary-foreground")}>
-        <Search className="size-4" strokeWidth={3} />
+      <img src={escudo.url} alt="Escudo UCB" width={32} height={38} className="h-9 w-auto" />
+      <span className="leading-none">CATO <span className={light ? "text-gold" : "text-accent"}>FIND</span>
+        <span className={cn("block text-[9px] font-semibold tracking-[0.18em]", light ? "text-gold" : "text-muted-foreground")}>UCB COCHABAMBA</span>
       </span>
-      CATO FIND
     </span>
   );
 }
@@ -127,13 +128,13 @@ export function StudentShell({ children, fab = false }: { children: ReactNode; f
   const active = (to: string) => path === to || path.startsWith(to + "/");
   return (
     <div className="min-h-screen bg-background pb-24 md:pb-10">
-      <header className="sticky top-0 z-30 border-b bg-card/85 backdrop-blur">
+      <header className="sticky top-0 z-30 border-b-2 border-gold bg-card/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4">
           <Link to="/inicio"><Logo /></Link>
           <nav className="hidden flex-1 gap-1 md:flex">
             {studentNav.map((n) => (
               <Link key={n.to} to={n.to}
-                className={cn("rounded-full px-4 py-2 text-sm font-medium transition", active(n.to) ? "bg-secondary text-primary" : "text-muted-foreground hover:text-foreground")}>
+                className={cn("rounded-full px-4 py-2 text-sm font-medium transition", active(n.to) ? "bg-secondary text-primary shadow-[inset_0_-2px_0_var(--gold)]" : "text-muted-foreground hover:text-foreground")}>
                 {n.label}
               </Link>
             ))}
@@ -155,7 +156,7 @@ export function StudentShell({ children, fab = false }: { children: ReactNode; f
       </header>
       <main className="mx-auto max-w-7xl px-4 py-6 animate-rise">{children}</main>
       {fab && (
-        <Link to="/reportar" className="fixed bottom-24 right-5 z-30 inline-flex items-center gap-2 rounded-full bg-hero px-5 py-3.5 text-sm font-semibold text-primary-foreground shadow-lift transition hover:scale-105 md:bottom-8">
+        <Link to="/reportar" className="fixed bottom-24 right-5 z-30 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3.5 text-sm font-bold text-gold-foreground shadow-lift transition hover:scale-105 md:bottom-8">
           <Plus className="size-4" /> Reportar objeto
         </Link>
       )}
@@ -188,7 +189,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
   const active = (to: string) => (to === "/admin" ? path === "/admin" || path === "/admin/" : path.startsWith(to));
   return (
     <div className="min-h-screen bg-muted md:flex">
-      <aside className="bg-hero text-primary-foreground md:sticky md:top-0 md:flex md:h-screen md:w-64 md:flex-col md:p-5">
+      <aside className="border-b-4 border-gold bg-hero text-primary-foreground md:border-b-0 md:border-r-4 md:sticky md:top-0 md:flex md:h-screen md:w-64 md:flex-col md:p-5">
         <div className="flex items-center justify-between p-4 md:p-0">
           <Link to="/admin"><Logo light /></Link>
           <span className="rounded-full bg-primary-foreground/15 px-2.5 py-1 text-[11px] font-semibold md:hidden">Admin</span>
