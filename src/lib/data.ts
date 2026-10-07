@@ -31,14 +31,14 @@ export interface Item {
   id: string; name: string; category: string; description: string; location: string;
   date: string; time: string; image: string; status: Status; reportedBy: string; createdAt: string;
   privateVerificationData: { characteristic: string; approximateLossLocation: string; approximateLossDate: string };
-  rejectReason?: string; infoRequested?: boolean; ownerId?: string;
+  rejectReason?: string | undefined; infoRequested?: boolean; ownerId?: string;
 }
 export interface Claim {
   id: string; itemId: string; userId: string; lossLocation: string; lossDate: string;
   characteristic: string; extra: string; status: "pending" | "validated" | "rejected" | "delivered"; createdAt: string;
 }
 export interface Notice {
-  id: string; userId: string; text: string; tone: "success" | "warning" | "info" | "danger"; link?: string; read: boolean; createdAt: string;
+  id: string; userId: string; text: string; tone: "success" | "warning" | "info" | "danger"; link?: string | undefined; read: boolean; createdAt: string;
 }
 
 export const USERS: User[] = [

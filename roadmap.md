@@ -1,4 +1,4 @@
 # Roadmap
 - [x] Pantallas de estudiante
-- [ ] Pantallas de administración
-- [ ] Logos UCB + detalles amarillos + azul institucional del logo
+- [x] Pantallas de administración
+- [x] Logos UCB + detalles amarillos + azul institucional del logo

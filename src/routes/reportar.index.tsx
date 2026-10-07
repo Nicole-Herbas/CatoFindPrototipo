@@ -18,12 +18,12 @@ function Paso1() {
   const [touched, setTouched] = useState(false);
   const today = new Date().toISOString().slice(0, 10);
   const errs: Record<string, string> = {};
-  if (!draft.category) errs.category = "Selecciona el tipo de objeto";
-  if (draft.name.trim().length < 3) errs.name = "Escribe un nombre (mín. 3 caracteres)";
-  if (!draft.location) errs.location = "Selecciona el lugar";
-  if (!draft.date || draft.date > today) errs.date = "La fecha no puede ser futura";
-  if (!draft.time) errs.time = "Indica la hora aproximada";
-  if (draft.description.trim().length < 10) errs.description = "Describe el objeto (mín. 10 caracteres)";
+  if (!draft.category) errs["category"] = "Selecciona el tipo de objeto";
+  if (draft.name.trim().length < 3) errs["name"] = "Escribe un nombre (mín. 3 caracteres)";
+  if (!draft.location) errs["location"] = "Selecciona el lugar";
+  if (!draft.date || draft.date > today) errs["date"] = "La fecha no puede ser futura";
+  if (!draft.time) errs["time"] = "Indica la hora aproximada";
+  if (draft.description.trim().length < 10) errs["description"] = "Describe el objeto (mín. 10 caracteres)";
   const E = ({ k }: { k: string }) => (touched && errs[k] ? <span className="mt-1 block text-xs text-destructive">{errs[k]}</span> : null);
   const next = (e: React.FormEvent) => {
     e.preventDefault(); setTouched(true);

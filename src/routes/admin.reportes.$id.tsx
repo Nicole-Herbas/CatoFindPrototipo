@@ -17,7 +17,7 @@ function Revisar() {
   const { items, users, approve, reject, requestInfo } = useStore();
   const navigate = useNavigate();
   const [rejecting, setRejecting] = useState(false);
-  const [reason, setReason] = useState(REJECT_REASONS[0]);
+  const [reason, setReason] = useState<string>(REJECT_REASONS[0] ?? "");
   const [checks, setChecks] = useState({ info: true, user: true, more: false });
   const item = items.find((i) => i.id === id);
   if (!item) return <AdminShell><EmptyState title="Reporte no encontrado" text="" /></AdminShell>;

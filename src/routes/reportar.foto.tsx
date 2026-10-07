@@ -36,7 +36,7 @@ function Paso2() {
   const [loading, setLoading] = useState(false);
   const handle = async (f?: File) => {
     if (!f) return;
-    if (!f.type.startsWith("image/")) return toast.error("El archivo debe ser una imagen.");
+    if (!f.type.startsWith("image/")) { toast.error("El archivo debe ser una imagen."); return; }
     setLoading(true);
     try { setDraft({ image: await resize(f) }); } catch { toast.error("No pudimos leer la imagen."); }
     setLoading(false);
