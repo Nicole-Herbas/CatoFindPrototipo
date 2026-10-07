@@ -4,7 +4,7 @@ import { StudentShell, StatusBadge, btn } from "@/components/cato";
 import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/reportar/enviado")({
-  validateSearch: (s: Record<string, unknown>): { id?: string } => ({ id: typeof s.id === "string" ? s.id : undefined }),
+  validateSearch: (s: Record<string, unknown>): { id?: string | undefined } => ({ id: typeof s["id"] === "string" ? s["id"] : undefined }),
   head: () => seo("Reporte enviado", "Tu reporte fue enviado y está en revisión."),
   component: () => (
     <StudentShell>

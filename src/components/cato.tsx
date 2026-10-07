@@ -214,7 +214,7 @@ export function AdminShell({ children }: { children: ReactNode }) {
   );
 }
 
-export function PageTitle({ title, subtitle, back }: { title: string; subtitle?: string; back?: ReactNode }) {
+export function PageTitle({ title, subtitle, back }: { title: string; subtitle?: string | undefined; back?: ReactNode }) {
   return (
     <div className="mb-6">
       {back}

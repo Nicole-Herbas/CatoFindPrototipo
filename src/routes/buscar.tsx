@@ -8,7 +8,7 @@ import { seo } from "@/lib/seo";
 import { isPublic } from "@/components/contact";
 
 export const Route = createFileRoute("/buscar")({
-  validateSearch: (s: Record<string, unknown>): { q?: string } => ({ q: typeof s.q === "string" ? s.q : undefined }),
+  validateSearch: (s: Record<string, unknown>): { q?: string | undefined } => ({ q: typeof s["q"] === "string" ? s["q"] : undefined }),
   head: () => seo("Buscar objetos", "Busca y filtra objetos encontrados por tipo, fecha, zona y hora."),
   component: Buscar,
 });

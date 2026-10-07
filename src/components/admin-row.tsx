@@ -18,7 +18,7 @@ export function ReportRow({ item, users }: { item: Item; users: User[] }) {
   );
 }
 
-export function ClaimRow({ claim, item, users }: { claim: Claim; item?: Item; users: User[] }) {
+export function ClaimRow({ claim, item, users }: { claim: Claim; item?: Item | undefined; users: User[] }) {
   const u = users.find((x) => x.id === claim.userId);
   const to = claim.status === "validated" ? "/admin/devolucion/$id" : "/admin/verificar-propietario/$id";
   return (
